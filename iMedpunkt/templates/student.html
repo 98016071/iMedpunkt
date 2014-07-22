@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{{ stud.first_name }} {{ stud.patron }} {{ stud.last_name }} {{ stud.birth_date }}
+<form action=''>
+    <label><input type="checkbox"/>Справка о контактах</label>
+    <br>
+    <label><input type="checkbox"/>Справка м-079</label>
+    <br>
+    Хронические заболевания и операции:<br>
+    <input type="text" width="50"/> <br>
+    Аллергия:<br>
+    <input type="text" width="50"/><br>
+    Детские инфекции:<br>
+    <label>
+        <input type="radio" name="radio1"/>Болел
+    </label><br>
+    <label>
+        <input type="radio" name="radio1" checked>Нет
+    </label><br>
+    Рост:<br>
+    <input type="text" value={{ stud.height }}><br>
+    Вес:<br>
+    <input type="text" value={{ stud.weight }}>
+
+
+
+
+</form>
+</body>
+</html>

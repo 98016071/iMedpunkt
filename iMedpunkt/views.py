@@ -16,5 +16,15 @@ def student_list(request):
     })
     return HttpResponse(template.render(context))
 
+
+def student(request, student_id):
+    stud = Student.objects.get(pk=student_id)
+    template = loader.get_template('student.html')
+    context = RequestContext(request, {
+        'stud': stud
+    })
+    return HttpResponse(template.render(context))
+
+
 def root(request):
-    return HttpResponse("<a href='hello'>to Hello</a>")
+    return HttpResponse("<a href='student_list'>to student list</a>")
