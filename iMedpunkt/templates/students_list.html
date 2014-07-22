@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<table class="student">
+    <tr class="student_head">
+        <th>
+            Имя Фамилия
+        </th>
+        <th>
+            Возраст
+        </th>
+        <th>
+            Группа
+        </th>
+        <th>
+            Место жительства
+        </th>
+        <th>
+            Здоровье
+        </th>
+        <th>
+            Аллергия
+        </th>
+        <th>
+            Рост
+        </th>
+        <th>
+            Вес
+        </th>
+        <th>
+            Справки
+        </th>
+        <th>
+            Еда
+        </th>
+    </tr>
+    {% for stud in students %}
+    <tr class="student">
+        <td class="student">
+            {{ stud }}
+        </td>
+        <td class="student">
+            {{ stud.age }}
+        </td>
+        <td>
+            {{ stud.group }}
+        </td>
+        <td>
+            {{ stud.home }}
+        </td>
+        <td>
+            {{ stud.health }}
+        </td>
+        <td>
+            {{ stud.allergy }}
+        </td>
+        <td>
+            {{ stud.height }}
+        </td>
+        <td>
+            {{ stud.weight }}
+        </td>
+        <td>
+            {{ stud.certificates }}
+        </td>
+        <td>
+            {{ stud.food }}
+        </td>
+
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
