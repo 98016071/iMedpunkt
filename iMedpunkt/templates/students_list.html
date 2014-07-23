@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
 <table class="student">
     <tr class="student_head">
         <th>
@@ -38,6 +34,7 @@
             Еда
         </th>
     </tr>
+
     {% for stud in students %}
     <tr class="student">
         <td class="student">
@@ -46,33 +43,33 @@
         <td class="student">
             {{ stud.age }}
         </td>
-        <td>
+        <td class="student">
             {{ stud.group }}
         </td>
-        <td>
+        <td class="student">
             {{ stud.home }}
         </td>
-        <td>
+        <td class="student">
             {{ stud.health }}
         </td>
-        <td>
+        <td class="student">
             {{ stud.allergy }}
         </td>
-        <td>
+        <td class="student">
             {{ stud.height }}
         </td>
-        <td>
+        <td class="student">
             {{ stud.weight }}
         </td>
-        <td>
+        <td class="student">
             {{ stud.certificates }}
         </td>
-        <td>
+        <td class="student">
             {{ stud.food }}
         </td>
 
     </tr>
     {% endfor %}
-</table>
-</body>
-</html>
+
+</table>{% endblock %}
+
