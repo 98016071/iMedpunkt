@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}"/>
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.png' %}" />
+    <title>{% block title %}iMedpunkt{% endblock %}</title>
+</head>
+
+<body>
+    <h1 class="header">✚iMedpunkt</h1>
+    <!--
+    <div id="sidebar">
+        {% block sidebar %}
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog/">Blog</a></li>
+        </ul>
+        {% endblock %}
+    </div>
+    -->
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
