@@ -38,7 +38,7 @@
     {% for stud in students %}
     <tr class="student">
         <td class="student">
-            {{ stud }}
+            <a href={% url 'student' stud.id %}> {{ stud }} </a>
         </td>
         <td class="student">
             {{ stud.age }}
