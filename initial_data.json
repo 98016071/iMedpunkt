@@ -1,0 +1,61 @@
+[{
+	"pk": 1, 
+	"model": "iMedpunkt.student", 
+	"fields": {
+		"first_name": "Денис", 
+		"patronymic": "Андреевич", 
+		"last_name": "Печоркин", 
+		"birth_date": "2000-12-26", 
+		"sex": "м", 
+		"group": "C2", 
+		"home": "ГК 2",
+		"height": 160, 
+		"weight": 40, 
+		"health": "",
+		"food": "", 
+		"allergy": "", 
+		"cert2": true, 
+		"cert1": true
+	}
+},
+{
+	"pk": 2, 
+	"model": "iMedpunkt.student", 
+	"fields": {
+		"first_name": "Петр", 
+		"patronymic": "Григорьевич", 
+		"last_name": "Мурзилкин", 
+		"birth_date": "1998-11-24", 
+		"sex": "м", 
+		"group": "A1", 
+		"home": "ГК 2",
+		"height": 160, 
+		"weight": 60, 
+		"health": "",
+		"food": "", 
+		"allergy": "пыльца", 
+		"cert2": true, 
+		"cert1": false
+	}	
+},
+{
+	"pk": 3, 
+	"model": "iMedpunkt.student", 
+	"fields": {
+		"first_name": "Инна", 
+		"patronymic": "Матвеевна", 
+		"last_name": "Букашкина", 
+		"birth_date": "1999-11-24", 
+		"sex": "ж", 
+		"group": "B7", 
+		"home": "5 домик",
+		"height": 160, 
+		"weight": 55, 
+		"health": "гастрит", 
+		"food": "не ем мучное", 
+		"allergy": "", 
+		"cert2": true, 
+		"cert1": true
+	}	
+}
+]
