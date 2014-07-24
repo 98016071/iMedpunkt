@@ -17,6 +17,7 @@ class Student(models.Model):
     health = models.CharField(max_length=100, default='#')
     allergy = models.CharField(max_length=100, default='#')
     food = models.CharField(max_length=100, default='#')
+    bolel = models.BooleanField(default=False)
     cert1 = models.BooleanField(default=False)
     cert2 = models.BooleanField(default=False)
 

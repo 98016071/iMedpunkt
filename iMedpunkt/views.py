@@ -25,6 +25,21 @@ def student(request, student_id):
     })
     return HttpResponse(template.render(context))
 
+def student_post(request, student_id):
+    if request.method != 'POST':
+        return HttpResponse('Fuck you!')
+    data = request.POST
+    stud = Student.objects.get(pk=student_id)
+    x = open('hren.txt', 'w')
+    print(data['cert1'], x)
+    x.close()
+    stud.cert1, stud.cert2, stud.health, stud.allergy = data.get('cert1', False), data.get('cert2', False), data['health'], data['allergy']
+    stud.bolel, stud.height, stud.weight = data['bolel'], data['height'], data['weight']
+    stud.save()
+    return student_list(request)
+
+
+
 
 def root(request):
     return HttpResponse("<a href='student_list'>to student list</a>")

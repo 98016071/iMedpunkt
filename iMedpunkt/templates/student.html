@@ -6,27 +6,28 @@
 </head>
 <body>
 {{ stud.first_name }} {{ stud.patron }} {{ stud.last_name }} {{ stud.birth_date }}
-<form action=''>
-    <label><input type="checkbox" {% if stud.cert1 %} checked {% endif %}>Справка о контактах</label>
+<form method="post" action={% url 'student_post' stud.id %}>
+{% csrf_token %}
+    <label><input type="checkbox" name="cert1" {% if stud.cert1 %} checked {% endif %}>Справка о контактах</label>
     <br>
-    <label><input type="checkbox" {% if stud.cert2 %} checked {% endif %}/>Справка м-079</label>
+    <label><input type="checkbox" name="cert2" {% if stud.cert2 %} checked {% endif %}>Справка м-079</label>
     <br>
     Хронические заболевания и операции:<br>
-    <input type="text" width="50" value={{ stud.health }}><br>
+    <input type="text" width="50" name="health" value={{ stud.health }}><br>
     Аллергия:<br>
-    <input type="text" width="50" value={{ stud.allergy }}><br>
+    <input type="text" width="50" name="allergy" value={{ stud.allergy }}><br>
     Детские инфекции:<br>
     <label>
-        <input type="radio" name="radio1"/>Болел
+        <input name="bolel" type="radio" value="1"/>Болел
     </label><br>
     <label>
-        <input type="radio" name="radio1" checked>Нет
+        <input name="bolel" type="radio" value="0" checked>Нет
     </label><br>
     Рост:<br>
-    <input type="text" value={{ stud.height }}><br>
+    <input type="text" name="height" value={{ stud.height }}><br>
     Вес:<br>
-    <input type="text" value={{ stud.weight }}>
-    <input type="button" onclick=""
+    <input type="text" name="weight" value={{ stud.weight }}>
+    <input type="submit" value="Отправить">
 </form>
 </body>
 </html>
