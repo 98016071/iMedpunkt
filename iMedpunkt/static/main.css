@@ -62,7 +62,11 @@ tr.student:nth-child(odd) {
     background-color: #f0ffff;
 }
 
-
+input.formfield {
+  border: 1px dotted #999;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
 
 
 
