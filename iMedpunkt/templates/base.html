@@ -10,9 +10,14 @@
 
 <body>
     <h1 class="header">✚ iMedpunkt</h1>
-    <!--
-    <div id="sidebar">
-        {% block sidebar %}
+    <div id="navigation">
+        {% block navigation %}
+        <a href={% url 'student_list' %}>
+            Школьники
+        </a>
+        <a href={% url 'visits_list' %}>
+            Журнал посещений
+        </a>
         <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/blog/">Blog</a></li>
