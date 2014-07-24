@@ -35,6 +35,9 @@ def student_post(request, student_id):
     stud.save()
     return student_list(request)
 
+def visits_list(request):
+    return HttpResponse("!!")
+
 
 
 
