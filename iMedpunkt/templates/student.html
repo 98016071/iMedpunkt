@@ -7,14 +7,14 @@
 <body>
 {{ stud.first_name }} {{ stud.patron }} {{ stud.last_name }} {{ stud.birth_date }}
 <form action=''>
-    <label><input type="checkbox"/>Справка о контактах</label>
+    <label><input type="checkbox" {% if stud.cert1 %} checked {% endif %}>Справка о контактах</label>
     <br>
-    <label><input type="checkbox"/>Справка м-079</label>
+    <label><input type="checkbox" {% if stud.cert2 %} checked {% endif %}/>Справка м-079</label>
     <br>
     Хронические заболевания и операции:<br>
-    <input type="text" width="50"/> <br>
+    <input type="text" width="50" value={{ stud.health }}><br>
     Аллергия:<br>
-    <input type="text" width="50"/><br>
+    <input type="text" width="50" value={{ stud.allergy }}><br>
     Детские инфекции:<br>
     <label>
         <input type="radio" name="radio1"/>Болел
@@ -26,10 +26,7 @@
     <input type="text" value={{ stud.height }}><br>
     Вес:<br>
     <input type="text" value={{ stud.weight }}>
-
-
-
-
+    <input type="button" onclick=""
 </form>
 </body>
 </html>

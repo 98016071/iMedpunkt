@@ -1,61 +1,61 @@
 [{
-	"pk": 1, 
-	"model": "iMedpunkt.student", 
-	"fields": {
-		"first_name": "Р”РµРЅРёСЃ", 
-		"patronymic": "РђРЅРґСЂРµРµРІРёС‡", 
-		"last_name": "РџРµС‡РѕСЂРєРёРЅ", 
-		"birth_date": "2000-12-26", 
-		"sex": "Рј", 
-		"group": "C2", 
-		"home": "Р“Рљ 2",
-		"height": 160, 
-		"weight": 40, 
-		"health": "",
-		"food": "", 
-		"allergy": "", 
-		"cert2": true, 
-		"cert1": true
-	}
+    "pk": 1, 
+    "model": "iMedpunkt.student", 
+    "fields": {
+        "first_name": "Денис", 
+        "patronymic": "Андреевич", 
+        "last_name": "Печоркин", 
+        "birth_date": "2000-12-26", 
+        "sex": "м", 
+        "group": "C2", 
+        "home": "ГК 2",
+        "height": 160, 
+        "weight": 40, 
+        "health": "",
+        "food": "", 
+        "allergy": "", 
+        "cert2": true, 
+        "cert1": true
+    }
 },
 {
-	"pk": 2, 
-	"model": "iMedpunkt.student", 
-	"fields": {
-		"first_name": "РџРµС‚СЂ", 
-		"patronymic": "Р“СЂРёРіРѕСЂСЊРµРІРёС‡", 
-		"last_name": "РњСѓСЂР·РёР»РєРёРЅ", 
-		"birth_date": "1998-11-24", 
-		"sex": "Рј", 
-		"group": "A1", 
-		"home": "Р“Рљ 2",
-		"height": 160, 
-		"weight": 60, 
-		"health": "",
-		"food": "", 
-		"allergy": "РїС‹Р»СЊС†Р°", 
-		"cert2": true, 
-		"cert1": false
-	}	
+    "pk": 2, 
+    "model": "iMedpunkt.student", 
+    "fields": {
+        "first_name": "Петр", 
+        "patronymic": "Григорьевич", 
+        "last_name": "Мурзилкин", 
+        "birth_date": "1998-11-24", 
+        "sex": "м", 
+        "group": "A1", 
+        "home": "ГК 2",
+        "height": 160, 
+        "weight": 60, 
+        "health": "",
+        "food": "", 
+        "allergy": "пыльца", 
+        "cert2": true, 
+        "cert1": false
+    }   
 },
 {
-	"pk": 3, 
-	"model": "iMedpunkt.student", 
-	"fields": {
-		"first_name": "РРЅРЅР°", 
-		"patronymic": "РњР°С‚РІРµРµРІРЅР°", 
-		"last_name": "Р‘СѓРєР°С€РєРёРЅР°", 
-		"birth_date": "1999-11-24", 
-		"sex": "Р¶", 
-		"group": "B7", 
-		"home": "5 РґРѕРјРёРє",
-		"height": 160, 
-		"weight": 55, 
-		"health": "РіР°СЃС‚СЂРёС‚", 
-		"food": "РЅРµ РµРј РјСѓС‡РЅРѕРµ", 
-		"allergy": "", 
-		"cert2": true, 
-		"cert1": true
-	}	
+    "pk": 3, 
+    "model": "iMedpunkt.student", 
+    "fields": {
+        "first_name": "Инна", 
+        "patronymic": "Матвеевна", 
+        "last_name": "Букашкина", 
+        "birth_date": "1999-11-24", 
+        "sex": "ж", 
+        "group": "B7", 
+        "home": "5 домик",
+        "height": 160, 
+        "weight": 55, 
+        "health": "гастрит", 
+        "food": "не ем мучное", 
+        "allergy": "", 
+        "cert2": true, 
+        "cert1": true
+    }   
 }
 ]
