@@ -1,3 +1,4 @@
+{% if visits%}
 <table class="visits">
     {% for visit in visits %}
     <tr class="visits">
@@ -24,3 +25,7 @@
     </tr>
     {% endfor %}
 </table>
+{% else %}
+  (нет обращений)
+{% endif %}
+

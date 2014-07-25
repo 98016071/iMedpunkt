@@ -36,9 +36,9 @@
     </tr>
 
     {% for stud in students %}
-    <tr class="student">
+    <tr class="student" onclick="location.href='{% url 'student' stud.id %}'">
         <td class="student">
-            <a href={% url 'student' stud.id %}> {{ stud }} </a>
+            <a href="{% url 'student' stud.id %}"> {{ stud }} </a>
         </td>
         <td class="student">
             {{ stud.age }}
