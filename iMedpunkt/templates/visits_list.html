@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="visits">
+    {% for visit in visits %}
+    <tr class="visits">
+        <td class="visits">
+            <div style="float:right">
+                <a style="font-size:8pt;" href="{% url 'visit_edit' visit.id %}">Изменить</a>
+            </div>
+            <h3>
+                {{ visit.student }}
+            </h3>
+            <p>
+                Жалобы: {{ visit.complaints }}
+            </p>
+            <p style="font-size:8pt; text-align:right">
+                {{ visit.date }}
+            </p>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+

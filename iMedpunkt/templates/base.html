@@ -12,12 +12,8 @@
     <h1 class="header">✚ iMedpunkt</h1>
     <div id="navigation">
         {% block navigation %}
-        <a href={% url 'student_list' %}>
-            Школьники
-        </a>
-        <a href={% url 'visits_list' %}>
-            Журнал посещений
-        </a>
+        <a class="navigation" href={% url 'student_list' %}>Школьники</a>
+        <a class="navigation" href={% url 'visits_list' %}>Журнал посещений</a>
         {% endblock %}
     </div>
     <div id="content">

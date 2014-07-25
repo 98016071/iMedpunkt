@@ -37,3 +37,24 @@ class Student(models.Model):
         if self.cert1 and self.cert2:
             return '+'
         return '-'
+
+class Visit(models.Model):
+    date = models.DateTimeField(auto_now=True)
+    student = models.ForeignKey(Student)
+    complaints = models.CharField(max_length=1000)
+    examination = models.CharField(max_length=1000)
+    diagnosis = models.CharField(max_length=1000)
+    treatment = models.CharField(max_length=1000)
+    temperature = models.IntegerField()
+    flags = models.IntegerField()
+
+    def setFlag(self, i, val):
+        k = (1 << i)
+        if val == 1:
+            self.flags |= (1 << i)
+        else:
+            if int(self.flags) & k > 0:
+                self.flags -= k
+
+    def getFlag(self, i):
+        return (self.flags >> i) & 1

@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.template.context import RequestContext
-from iMedpunkt.models import Student
+from iMedpunkt.models import Student, Visit
 
 
 def student_list(request):
@@ -36,7 +36,20 @@ def student_post(request, student_id):
     return student_list(request)
 
 def visits_list(request):
-    return HttpResponse("!!")
+    visits = Visit.objects.order_by("date")
+    template = loader.get_template('visits_list.html')
+    context = RequestContext(request, {
+        'visits': visits
+    })
+    return HttpResponse(template.render(context))
+
+def visit_edit(request, visit_id):
+    visit = Visit.objects.get(pk=visit_id)
+    template = loader.get_template('visit_edit.html')
+    context = RequestContext(request, {
+        'visit': visit
+    })
+    return HttpResponse(template.render(context))
 
 
 
