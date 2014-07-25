@@ -1,69 +1,119 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>{{ visit.student.first_name }} {{ visit.student.patronymic }} {{ visit.student.last_name }} ({{ visit.student.group }})</h1>
+<div class="centercolumn">
+    <h1>{{ visit.student.first_name }} {{ visit.student.patronymic }} {{ visit.student.last_name }}
+        ({{ visit.student.group }})</h1>
+
     <p>
-        Дата рождения: {{ visit.student.birth_date }}
+        Обращение в медпункт: {{ visit.date }}
     </p>
-    <form method="post" action={% url 'student_post' visit.id %}>
-        {% csrf_token %}
-        <div id="leftcol">
-            <label><input type="checkbox" name="cert1" {% if visit.cert1 %} checked {% endif %}>Справка о
-                контактах</label>
-            <br>
-            <label><input type="checkbox" name="cert2" {% if visit.cert2 %} checked {% endif %}>Справка м-079</label>
-            <br>
-            Хронические заболевания и операции:<br>
-            <input type="text" size="50" name="health" value="{{ visit.health }}"><br>
-            Аллергия:<br>
-            <input type="text" size="50" name="allergy" value="{{ visit.allergy }}"><br>
-        </div>
-        <div id="rightcol">
-            Показывать для печать:<br>
-            <label>
-                <input name="print" type="radio" value="1" {% if visit.print %} checked {% endif %}/>Да
-            </label>
-            <label>
-                <input name="print" type="radio" value="0" {% if not visit.print %} checked {% endif %}>Нет
-            </label><br>
-            Поместить в изолятор:<br>
-            <label>
-                <input name="isolator" type="radio" value="1" {% if visit.isolator %} checked {% endif %}/>Да
-            </label>
-            <label>
-                <input name="isolator" type="radio" value="0" {% if not visit.isolator %} checked {% endif %}>Нет
-            </label><br>
-            Случай:<br>
-            <label>
-                <input name="is_first" type="radio" value="1" {% if visit.is_first %} checked {% endif %}/>Первичный
-            </label><br>
-            <label>
-                <input name="is_first" type="radio" value="0" {% if not visit.is_first %} checked {% endif %}>Вторичный
-            </label><br>
-        </div>
-        <div id="rightrightcol">
-            Травма:<br>
-            <label>
-                <input name="injury" type="radio" value="1" {% if visit.injury %} checked {% endif %}>Да
-            </label>
-            <label>
-                <input name="injury" type="radio" value="0" {% if not visit.print %} checked {% endif %}>Нет
-            </label><br>
-            Нужна ли консультация:<br>
-            <label>
-                <input name="need_consultation" type="radio" value="1" {% if visit.need_consultation %} checked {% endif %}>Да
-            </label>
-            <label>
-                <input name="need_consultation" type="radio" value="0" {% if not visit.need_consulation %} checked {% endif %}>Нет
-            </label><br>
-            Нужен повторный визит:<br>
-            <label>
-                <input name="need_repeat" type="radio" value="1" {% if visit.need_repeat %} checked {% endif %}/>Да
-            </label>
-            <label>
-                <input name="need_repeat" type="radio" value="0" {% if not visit.print %} checked {% endif %}>Нет
-            </label><br>
-            <input type="submit" value="Отправить">
-        </div>
+
+    <form method="post" action={% url
+    'student_post' visit.id %}>
+    {% csrf_token %}
+    <p>
+        Жалобы на:<br>
+        <input type="text" size="70" name="complaints" value="{{ visit.complaints }}">
+    </p>
+
+    <p>
+        Осмотр:<br>
+        <input type="text" size="70" name="examination" value="{{ visit.examination }}">
+    </p>
+
+    <p>
+        Диагноз:<br>
+        <input type="text" size="70" name="diagnosis" value="{{ visit.diagnosis }}">
+    </p>
+
+    <p>
+        Лечение:<br>
+        <input type="text" size="70" name="treatment" value="{{ visit.treatment }}">
+    </p>
+    <table>
+        <tr>
+            <td>
+                Показывать на печати:
+            </td>
+            <td>
+                <label>
+                    <input name="print" type="radio" value="1" {% if visit.print %} checked {% endif %}/>Да
+                </label>
+                <label>
+                    <input name="print" type="radio" value="0" {% if not visit.print %} checked {% endif %}>Нет
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Поместить в изолятор:
+            </td>
+            <td>
+                <label>
+                    <input name="isolator" type="radio" value="1" {% if visit.isolator %} checked {% endif %}/>Да
+                </label>
+                <label>
+                    <input name="isolator" type="radio" value="0" {% if not visit.isolator %} checked {% endif %}>Нет
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Первичный:
+            </td>
+            <td>
+                <label>
+                    <input name="is_first" type="radio" value="1" {% if visit.is_first %} checked {% endif %}/>Да
+                </label>
+                <label>
+                    <input name="is_first" type="radio" value="0" {% if not visit.is_first %} checked {% endif %}>Нет
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Травма:
+            </td>
+            <td>
+                <label>
+                    <input name="injury" type="radio" value="1" {% if visit.injury %} checked {% endif %}>Да
+                </label>
+                <label>
+                    <input name="injury" type="radio" value="0" {% if not visit.print %} checked {% endif %}>Нет
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Нужна консультация:
+            </td>
+            <td>
+                <label>
+                    <input name="need_consultation" type="radio" value="1" {% if visit.need_consultation %} checked {% endif %}>Да
+                </label>
+                <label>
+                    <input name="need_consultation" type="radio" value="0" {% if not visit.need_consulation %} checked {% endif %}>Нет
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Нужен повторный визит:
+            </td>
+            <td>
+                <label>
+                    <input name="need_repeat" type="radio" value="1" {% if visit.need_repeat %} checked {% endif %}/>Да
+                </label>
+                <label>
+                    <input name="need_repeat" type="radio" value="0" {% if not visit.print %} checked {% endif %}>Нет
+                </label>
+            </td>
+        </tr>
+    </table>
+    <p>
+        <input type="submit" value="Сохранить">
+    </p>
     </form>
+</div>
 {% endblock %}
