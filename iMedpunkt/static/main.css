@@ -14,6 +14,7 @@ h1, h2, h3, a.header {
 
 h1.header {
     color: red;
+    margin-bottom: 1em;
 }
 
 h1 {
@@ -37,8 +38,7 @@ table.student {
     border: none;
     border-collapse: collapse;
     width: 100%;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 1em;
 }
 
 td.student {
@@ -90,7 +90,7 @@ td.visits {
 #leftcol {
     position: absolute; /* Абсолютное позиционирование */
     width: 350px; /* Ширина слоя */
-    left: 0; /* Положение от левого края окна */
+    left: 1em; /* Положение от левого края окна */
     padding: 5px; /* Поля вокруг текста */
 }
 
