@@ -38,6 +38,7 @@ class Student(models.Model):
             return '+'
         return '-'
 
+
 class Visit(models.Model):
     date = models.DateTimeField(auto_now=True)
     student = models.ForeignKey(Student)
@@ -47,6 +48,13 @@ class Visit(models.Model):
     treatment = models.CharField(max_length=1000)
     temperature = models.IntegerField()
     flags = models.IntegerField()
+    print = models.BooleanField(default=False)
+    in_isolator = models.BooleanField(default=False)
+    is_first = models.BooleanField(default=False)
+    injury = models.BooleanField(default=False)
+    need_consultation = models.BooleanField(default=False)
+    need_repeat = models.BooleanField(default=False)
+
 
     def setFlag(self, i, val):
         k = (1 << i)

@@ -84,9 +84,6 @@ td.visits {
     padding-right: 1em;
 }
 
-
-
-
 #leftcol {
     position: absolute; /* Абсолютное позиционирование */
     width: 350px; /* Ширина слоя */
@@ -95,8 +92,13 @@ td.visits {
 }
 
 #rightcol {
+    position: absolute;
     margin-left: 360px; /* Отступ слева */
     padding: 5px; /* Поля вокруг текста */
+    width: 200px;
 }
 
-3
+#rightrightcol {
+    margin-left: 560px;
+    padding: 5px;
+}
