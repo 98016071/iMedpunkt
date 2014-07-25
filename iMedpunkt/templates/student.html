@@ -1,36 +1,63 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>{{ stud.first_name }} {{ stud.patronymic }} {{ stud.last_name }} ({{ stud.group }})</h1>
-    <p>
-        Дата рождения: {{ stud.birth_date }}
-    </p>
-    <form method="post" action={% url 'student_post' stud.id %}>
-        {% csrf_token %}
-        <div id="leftcol">
-            <label><input type="checkbox" name="cert1" {% if stud.cert1 %} checked {% endif %}>Справка о
-                контактах</label>
-            <br>
-            <label><input type="checkbox" name="cert2" {% if stud.cert2 %} checked {% endif %}>Справка м-079</label>
-            <br>
-            Хронические заболевания и операции:<br>
-            <input type="text" size="50" name="health" value="{{ stud.health }}"><br>
-            Аллергия:<br>
-            <input type="text" size="50" name="allergy" value="{{ stud.allergy }}"><br>
-        </div>
-        <div id="rightcol">
-            Детские инфекции:<br>
-            <label>
-                <input name="bolel" type="radio" value="1"/>Болел
-            </label>
-            <label>
-                <input name="bolel" type="radio" value="0" checked>Нет
-            </label><br>
-            Рост:<br>
-            <input type="text" name="height" value={{ stud.height }}><br>
-            Вес:<br>
-            <input type="text" name="weight" value={{ stud.weight }}><br>
-            <input type="submit" value="Отправить">
-        </div>
-    </form>
+<div class="centercolumn">
+    <div class="studentcard">
+        <h1>{{ stud.first_name }} {{ stud.patronymic }} {{ stud.last_name }} ({{ stud.group }})</h1>
+
+        <p>
+            Дата рождения: {{ stud.birth_date }}
+        </p>
+
+        <form method="post" action="{% url 'student_post' stud.id %}">
+            {% csrf_token %}
+            <div class="leftcol">
+                <p>
+                    <label><input type="checkbox" name="cert1" {% if stud.cert1 %} checked {% endif %}>Справка о
+                        контактах</label>
+                    <br>
+                    <label><input type="checkbox" name="cert2" {% if stud.cert2 %} checked {% endif %}>Справка
+                        м-079</label>
+                </p>
+
+                <p>
+                    Хронические заболевания и операции:<br>
+                    <input type="text" size="50" name="health" value="{{ stud.health }}"><br>
+                </p>
+
+                <p>
+                    Аллергия:<br>
+                    <input type="text" size="50" name="allergy" value="{{ stud.allergy }}"><br>
+                </p>
+            </div>
+            <div class="rightcol">
+                <p>
+                    Детские инфекции:<br>
+                    <label>
+                        <input name="bolel" type="radio" value="1"/>Болел
+                    </label>
+                    <label>
+                        <input name="bolel" type="radio" value="0" checked>Нет
+                    </label><br>
+                </p>
+
+                <p>
+                    Рост:<br>
+                    <input type="text" name="height" value={{ stud.height }}><br>
+                    Вес:<br>
+                    <input type="text" name="weight" value={{ stud.weight }}><br>
+                </p>
+                <p>
+                    <input type="submit" value="Сохранить">
+                </p>
+            </div>
+        </form>
+    </div>
+
+    <h2>Обращения:</h2>
+
+    {% include "visits_list_template.html" with visits=visits %}
+
+</div>
+
 {% endblock %}

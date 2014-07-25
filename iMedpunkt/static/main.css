@@ -74,8 +74,9 @@ a.navigation {
 
 
 table.visits {
-    margin: 1em;
+    padding-top: 2em;
     cellspacing: 1em;
+    width: 30em;
 }
 
 td.visits {
@@ -84,21 +85,18 @@ td.visits {
     padding-right: 1em;
 }
 
-#leftcol {
-    position: absolute; /* Абсолютное позиционирование */
-    width: 350px; /* Ширина слоя */
-    left: 1em; /* Положение от левого края окна */
-    padding: 5px; /* Поля вокруг текста */
+div.leftcol {
+    float: left;
+    width: 20em;
 }
 
-#rightcol {
-    position: absolute;
-    margin-left: 360px; /* Отступ слева */
-    padding: 5px; /* Поля вокруг текста */
-    width: 200px;
+div.rightcol {
+    float: right;
+    width: 10em;
 }
 
-#rightrightcol {
-    margin-left: 560px;
-    padding: 5px;
+div.centercolumn {
+    margin: 0 auto;
+    margin-top: 2em;
+    width: 30em;
 }

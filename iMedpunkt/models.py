@@ -48,7 +48,7 @@ class Visit(models.Model):
     treatment = models.CharField(max_length=1000)
     temperature = models.IntegerField()
     flags = models.IntegerField()
-    print = models.BooleanField(default=False)
+    toPrint = models.BooleanField(default=False)
     in_isolator = models.BooleanField(default=False)
     is_first = models.BooleanField(default=False)
     injury = models.BooleanField(default=False)
