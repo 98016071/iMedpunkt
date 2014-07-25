@@ -68,12 +68,17 @@ input.formfield {
   -webkit-appearance: none;
 }
 
+#leftcol {
+    position: absolute; /* Абсолютное позиционирование */
+    width: 350px; /* Ширина слоя */
+    left: 0; /* Положение от левого края окна */
+    padding: 5px; /* Поля вокруг текста */
+}
 
-
-
-
-
-
+#rightcol {
+    margin-left: 360px; /* Отступ слева */
+    padding: 5px; /* Поля вокруг текста */
+}
 
 
 img {
