@@ -1,3 +1,4 @@
+from datetime import date, timedelta
 from django.shortcuts import render
 
 # Create your views here.
@@ -19,7 +20,7 @@ def student_list(request):
 
 def student(request, student_id):
     stud = Student.objects.get(pk=student_id)
-    visits = Visit.objects.filter(student__id=student_id)
+    visits = Visit.objects.filter(student__id=student_id).order_by("date").reverse()
     template = loader.get_template('student.html')
     context = RequestContext(request, {
         'stud': stud,
@@ -30,21 +31,38 @@ def student(request, student_id):
 
 def student_post(request, student_id):
     if request.method != 'POST':
-        return HttpResponse('Fuck you!')
+        return HttpResponse('Use POST')
     data = request.POST
     stud = Student.objects.get(pk=student_id)
-    stud.cert1, stud.cert2, stud.health, stud.allergy = data.get('cert1', False), data.get('cert2', False), data[
-        'health'], data['allergy']
+    stud.cert1, stud.cert2, stud.health, stud.allergy = \
+        data.get('cert1', False), data.get('cert2', False), \
+        data['health'], data['allergy']
     stud.bolel, stud.height, stud.weight = data['bolel'], data['height'], data['weight']
     stud.save()
     return student_list(request)
 
 
 def visits_list(request):
-    visits = Visit.objects.order_by("date")
+    visits = Visit.objects.order_by("date").reverse()
+    today = []
+    yesterday = []
+    this_week = []
+    earlier = []
+    for visit in visits:
+        visit_date = date(visit.date.year, visit.date.month, visit.date.day)
+        print(visit_date)
+        if visit_date == date.today():
+            today.append(visit)
+        elif visit.date == date.today() - timedelta(days=1):
+            yesterday.append(visit)
+        else:
+            earlier.append(visit)
+
     template = loader.get_template('visits_list.html')
     context = RequestContext(request, {
-        'visits': visits
+        'today': today,
+        'yesterday': yesterday,
+        'earlier': earlier
     })
     return HttpResponse(template.render(context))
 

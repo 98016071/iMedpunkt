@@ -3,7 +3,12 @@
 {% block content %}
 
 <div class="centercolumn">
-{% include "visits_list_template.html" with visits=visits %}
+    <h2> Сегодня </h2>
+        {% include "visits_list_template.html" with visits=today %}
+    <h2> Вчера </h2>
+        {% include "visits_list_template.html" with visits=yesterday %}
+    <h2> Раньше </h2>
+        {% include "visits_list_template.html" with visits=earlier %}
 </div>
 
 {% endblock %}

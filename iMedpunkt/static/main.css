@@ -12,6 +12,10 @@ h1, h2, h3, a.header {
     margin: 0;
 }
 
+h1, h2 {
+    color: #1070b0;
+}
+
 h1.header {
     color: red;
     margin-bottom: 1em;
