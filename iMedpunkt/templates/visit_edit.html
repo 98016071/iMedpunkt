@@ -9,8 +9,7 @@
         Обратился в медпункт {{ visit.date }}
     </p>
 
-    <form method="post" action={% url
-    'student_post' visit.id %}>
+    <form method="post" action={% url 'visit_post' visit.id %}>
     {% csrf_token %}
     <p>
         Жалобы на:<br>
@@ -38,10 +37,10 @@
             </td>
             <td>
                 <label>
-                    <input name="print" type="radio" value="1" {% if visit.print %} checked {% endif %}/>Да
+                    <input name="print" type="radio" value="1" {% if visit.to_print %} checked {% endif %}/>Да
                 </label>
                 <label>
-                    <input name="print" type="radio" value="0" {% if not visit.print %} checked {% endif %}>Нет
+                    <input name="print" type="radio" value="0" {% if not visit.to_print %} checked {% endif %}>Нет
                 </label>
             </td>
         </tr>
@@ -51,10 +50,10 @@
             </td>
             <td>
                 <label>
-                    <input name="isolator" type="radio" value="1" {% if visit.isolator %} checked {% endif %}/>Да
+                    <input name="isolator" type="radio" value="1" {% if visit.student.in_isolator %} checked {% endif %}/>Да
                 </label>
                 <label>
-                    <input name="isolator" type="radio" value="0" {% if not visit.isolator %} checked {% endif %}>Нет
+                    <input name="isolator" type="radio" value="0" {% if not visit.student.in_isolator %} checked {% endif %}>Нет
                 </label>
             </td>
         </tr>
@@ -80,7 +79,7 @@
                     <input name="injury" type="radio" value="1" {% if visit.injury %} checked {% endif %}>Да
                 </label>
                 <label>
-                    <input name="injury" type="radio" value="0" {% if not visit.print %} checked {% endif %}>Нет
+                    <input name="injury" type="radio" value="0" {% if not visit.injury %} checked {% endif %}>Нет
                 </label>
             </td>
         </tr>
@@ -106,7 +105,7 @@
                     <input name="need_repeat" type="radio" value="1" {% if visit.need_repeat %} checked {% endif %}/>Да
                 </label>
                 <label>
-                    <input name="need_repeat" type="radio" value="0" {% if not visit.print %} checked {% endif %}>Нет
+                    <input name="need_repeat" type="radio" value="0" {% if not visit.need_repeat %} checked {% endif %}>Нет
                 </label>
             </td>
         </tr>

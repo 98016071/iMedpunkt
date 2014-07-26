@@ -76,5 +76,24 @@ def visit_edit(request, visit_id):
     return HttpResponse(template.render(context))
 
 
+def visit_post(request, visit_id):
+    if request.method != 'POST':
+        return HttpResponse('Use POST')
+    visit = Visit.objects.get(pk=visit_id)
+    data = request.POST
+    visit.complaints = data['complaints']
+    visit.examination = data['examination']
+    visit.diagnosis = data['diagnosis']
+    visit.treatment = data['treatment']
+    visit.to_print = data['print']
+    visit.student.in_isolator = data['isolator']
+    visit.is_first = data['is_first']
+    visit.injury = data['injury']
+    visit.need_consultation = data['need_consultation']
+    visit.need_repeat = data['need_repeat']
+    print(data, visit)
+    visit.save()
+    return student(request, visit.student.id)
+
 def root(request):
     return HttpResponse("<a href='student_list'>to student list</a>")
