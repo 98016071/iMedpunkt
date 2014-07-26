@@ -4,11 +4,11 @@
 
 <div class="centercolumn">
     <h2> Сегодня </h2>
-        {% include "visits_list_template.html" with visits=today %}
+        {% include "visits_list_template.html" with visits=today hyper='true'%}
     <h2> Вчера </h2>
-        {% include "visits_list_template.html" with visits=yesterday %}
+        {% include "visits_list_template.html" with visits=yesterday hyper='true'%}
     <h2> Раньше </h2>
-        {% include "visits_list_template.html" with visits=earlier %}
+        {% include "visits_list_template.html" with visits=earlier hyper='true'%}
 </div>
 
 {% endblock %}
