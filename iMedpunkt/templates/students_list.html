@@ -1,76 +1,75 @@
 {% extends "base.html" %}
 
 {% block content %}
-<table class="student">
-    <tr class="student_head">
-        <th>
-            Имя Фамилия
-        </th>
-        <th>
-            Возраст
-        </th>
-        <th>
-            Группа
-        </th>
-        <th>
-            Место жительства
-        </th>
-        <th>
-            Здоровье
-        </th>
-        <th>
-            Аллергия
-        </th>
-        <th>
-            Рост
-        </th>
-        <th>
-            Вес
-        </th>
-        <th>
-            Справки
-        </th>
-        <th>
-            Еда
-        </th>
-    </tr>
+    <table class="student">
+        <tr class="student_head">
+            <th>
+                Имя Фамилия
+            </th>
+            <th>
+                Возраст
+            </th>
+            <th>
+                Группа
+            </th>
+            <th>
+                Место жительства
+            </th>
+            <th>
+                Здоровье
+            </th>
+            <th>
+                Аллергия
+            </th>
+            <th>
+                Рост
+            </th>
+            <th>
+                Вес
+            </th>
+            <th>
+                Справки
+            </th>
+            <th>
+                Еда
+            </th>
+        </tr>
 
-    {% for stud in students %}
-    <tr class="student" onclick="location.href='{% url 'student' stud.id %}'">
-        <td class="student">
-            {{ stud }}
-        </td>
-        <td class="student">
-            {{ stud.age }}
-        </td>
-        <td class="student">
-            {{ stud.group }}
-        </td>
-        <td class="student">
-            {{ stud.home }}
-        </td>
-        <td class="student">
-            {{ stud.health }}
-        </td>
-        <td class="student">
-            {{ stud.allergy }}
-        </td>
-        <td class="student">
-            {{ stud.height }}
-        </td>
-        <td class="student">
-            {{ stud.weight }}
-        </td>
-        <td class="student">
-            {{ stud.certificates }}
-        </td>
-        <td class="student">
-            {{ stud.food }}
-        </td>
+        {% for stud in students %}
+            <tr class="student{% if stud.in_isolator %}_red{% elif stud.need_repeat %}_green{% endif %}" onclick="location.href='{% url 'student' stud.id %}'">
+                <td class="student">
+                    {{ stud }}
+                </td>
+                <td class="student">
+                    {{ stud.age }}
+                </td>
+                <td class="student">
+                    {{ stud.group }}
+                </td>
+                <td class="student">
+                    {{ stud.home }}
+                </td>
+                <td class="student">
+                    {{ stud.health }}
+                </td>
+                <td class="student">
+                    {{ stud.allergy }}
+                </td>
+                <td class="student">
+                    {{ stud.height }}
+                </td>
+                <td class="student">
+                    {{ stud.weight }}
+                </td>
+                <td class="student">
+                    {{ stud.certificates }}
+                </td>
+                <td class="student">
+                    {{ stud.food }}
+                </td>
+            </tr>
+        {% endfor %}
 
-    </tr>
-    {% endfor %}
-
-</table>
+    </table>
 {% endblock %}
 

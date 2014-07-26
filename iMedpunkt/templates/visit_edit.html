@@ -102,10 +102,10 @@
             </td>
             <td>
                 <label>
-                    <input name="need_repeat" type="radio" value="1" {% if visit.need_repeat %} checked {% endif %}/>Да
+                    <input name="need_repeat" type="radio" value="1" {% if visit.student.need_repeat %} checked {% endif %}/>Да
                 </label>
                 <label>
-                    <input name="need_repeat" type="radio" value="0" {% if not visit.need_repeat %} checked {% endif %}>Нет
+                    <input name="need_repeat" type="radio" value="0" {% if not visit.student.need_repeat %} checked {% endif %}>Нет
                 </label>
             </td>
         </tr>

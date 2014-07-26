@@ -91,7 +91,7 @@ def visit_post(request, visit_id):
     visit.is_first = bool(int(data['is_first']))
     visit.injury = bool(int(data['injury']))
     visit.need_consultation = bool(int(data['need_consultation']))
-    visit.need_repeat = bool(int(data['need_repeat']))
+    visit.student.need_repeat = bool(int(data['need_repeat']))
     print(data, visit)
     visit.student.save()
     visit.save()

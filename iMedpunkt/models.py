@@ -17,6 +17,7 @@ class Student(models.Model):
     health = models.CharField(max_length=100, default='#')
     allergy = models.CharField(max_length=100, default='#')
     food = models.CharField(max_length=100, default='#')
+    need_repeat = models.BooleanField(default=False)
     in_isolator = models.BooleanField(default=False)
     bolel = models.BooleanField(default=False)
     cert1 = models.BooleanField(default=False)
@@ -48,15 +49,14 @@ class Visit(models.Model):
     diagnosis = models.CharField(max_length=1000)
     treatment = models.CharField(max_length=1000)
     temperature = models.IntegerField()
-    flags = models.IntegerField()
+    #flags = models.IntegerField()
     to_print = models.BooleanField(default=False)
     is_first = models.BooleanField(default=False)
     injury = models.BooleanField(default=False)
     need_consultation = models.BooleanField(default=False)
-    need_repeat = models.BooleanField(default=False)
 
 
-    def setFlag(self, i, val):
+    '''def setFlag(self, i, val):
         k = (1 << i)
         if val == 1:
             self.flags |= (1 << i)
@@ -65,4 +65,4 @@ class Visit(models.Model):
                 self.flags -= k
 
     def getFlag(self, i):
-        return (self.flags >> i) & 1
+        return (self.flags >> i) & 1'''
