@@ -38,6 +38,7 @@ def student_post(request, student_id):
         data.get('cert1', False), data.get('cert2', False), \
         data['health'], data['allergy']
     stud.bolel, stud.height, stud.weight = bool(int(data['bolel'])), data['height'], data['weight']
+    print(data, bool(int(data['bolel'])))
     stud.save()
     return student_list(request)
 
@@ -92,6 +93,7 @@ def visit_post(request, visit_id):
     visit.need_consultation = bool(int(data['need_consultation']))
     visit.need_repeat = bool(int(data['need_repeat']))
     print(data, visit)
+    visit.student.save()
     visit.save()
     return student(request, visit.student.id)
 

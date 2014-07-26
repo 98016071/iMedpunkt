@@ -34,10 +34,10 @@
                 <p>
                     Детские инфекции:<br>
                     <label>
-                        <input name="bolel" type="radio" value="1"/>Болел
+                        <input name="bolel" type="radio" value="1" {% if stud.bolel %} checked {% endif %}/>Болел
                     </label>
                     <label>
-                        <input name="bolel" type="radio" value="0" checked>Нет
+                        <input name="bolel" type="radio" value="0" {% if not stud.bolel %} checked {% endif %}>Нет
                     </label><br>
                 </p>
 
