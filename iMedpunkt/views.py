@@ -37,7 +37,8 @@ def student_post(request, student_id):
     stud.cert1, stud.cert2, stud.health, stud.allergy = \
         data.get('cert1', False), data.get('cert2', False), \
         data['health'], data['allergy']
-    stud.bolel, stud.height, stud.weight = data['bolel'], data['height'], data['weight']
+    stud.bolel, stud.height, stud.weight = bool(int(data['bolel'])), data['height'], data['weight']
+    print(data, bool(int(data['bolel'])))
     stud.save()
     return student_list(request)
 
@@ -85,15 +86,17 @@ def visit_post(request, visit_id):
     visit.examination = data['examination']
     visit.diagnosis = data['diagnosis']
     visit.treatment = data['treatment']
-    visit.to_print = data['print']
-    visit.student.in_isolator = data['isolator']
-    visit.is_first = data['is_first']
-    visit.injury = data['injury']
-    visit.need_consultation = data['need_consultation']
-    visit.need_repeat = data['need_repeat']
+    visit.to_print = bool(int(data['print']))  # bool(int('0')) == False
+    visit.student.in_isolator = bool(int(data['isolator']))
+    visit.is_first = bool(int(data['is_first']))
+    visit.injury = bool(int(data['injury']))
+    visit.need_consultation = bool(int(data['need_consultation']))
+    visit.need_repeat = bool(int(data['need_repeat']))
     print(data, visit)
+    visit.student.save()
     visit.save()
     return student(request, visit.student.id)
+
 
 def root(request):
     return HttpResponse("<a href='student_list'>to student list</a>")

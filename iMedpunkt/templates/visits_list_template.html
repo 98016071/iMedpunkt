@@ -1,31 +1,39 @@
-{% if visits%}
-<table class="visits">
-    {% for visit in visits %}
-    <tr class="visits">
-        <td class="visits">
-            <div style="float:right">
-                <a style="font-size:8pt;" href="{% url 'visit_edit' visit.id %}">Изменить</a>
-            </div>
-            <h3>
-                {{ visit.student }}
-            </h3>
-            <p>
-                Жалобы: {{ visit.complaints }}
-            </p>
-            <p>
-                Диагноз: {{ visit.diagnosis }}
-            </p>
-            <p>
-                Лечение: {{ visit.treatment }}
-            </p>
-            <p style="font-size:8pt; text-align:right">
-                {{ visit.date }}
-            </p>
-        </td>
-    </tr>
-    {% endfor %}
-</table>
+{% if visits %}
+    <table class="visits">
+        {% for visit in visits %}
+            <tr class="visits">
+                <td class="visits">
+                    <div style="float:right">
+                        <a style="font-size:8pt;" href="{% url 'visit_edit' visit.id %}">Изменить</a>
+                    </div>
+                    <h3>
+                        {% if hyper == 'true' %}<a href="{% url 'student' visit.student.id %}">{{ visit.student }}</a>
+                        {% else %}
+                            {{ visit.date }}
+                        {% endif %}
+                    </h3>
+
+                    <p>
+                        Жалобы: {{ visit.complaints }}
+                    </p>
+
+                    <p>
+                        Диагноз: {{ visit.diagnosis }}
+                    </p>
+
+                    <p>
+                        Лечение: {{ visit.treatment }}
+                    </p>
+                    {% if hyper == 'true' %}
+                        <p style="font-size:8pt; text-align:right">
+                            {{ visit.date }}
+                        </p>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
 {% else %}
-  (нет обращений)
+    (нет обращений)
 {% endif %}
 

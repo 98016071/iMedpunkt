@@ -90,7 +90,7 @@ td.visits {
 
 div.leftcol {
     float: left;
-    width: 20em;
+    width: 23em;
 }
 
 div.rightcol {
@@ -99,7 +99,6 @@ div.rightcol {
 }
 
 div.centercolumn {
-    margin: 0 auto;
-    margin-top: 2em;
-    width: 30em;
+    margin: 2em auto 0;
+    width: 33em;
 }
