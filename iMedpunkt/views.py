@@ -2,13 +2,19 @@ from datetime import date, timedelta
 from django.shortcuts import render
 
 # Create your views here.
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.template.context import RequestContext
 from iMedpunkt.models import Student, Visit
 
+def login(request):
+    return HttpResponse()
+
+
 
 def student_list(request):
+    # if not request.user.is_authenticated():
+    #     return HttpResponseRedirect('/login/?next=%s' % request.path)
     students = list(Student.objects.order_by("first_name"))
     template = loader.get_template('students_list.html')
     students.sort(key=lambda x: x.last_name)
@@ -19,11 +25,11 @@ def student_list(request):
 
 
 def student(request, student_id):
-    stud = Student.objects.get(pk=student_id)
+    student = Student.objects.get(pk=student_id)
     visits = Visit.objects.filter(student__id=student_id).order_by("date").reverse()
     template = loader.get_template('student.html')
     context = RequestContext(request, {
-        'stud': stud,
+        'student': student,
         'visits': visits
     })
     return HttpResponse(template.render(context))
@@ -75,6 +81,12 @@ def visit_edit(request, visit_id):
         'visit': visit
     })
     return HttpResponse(template.render(context))
+
+def visit_new(request, student_id):
+    visit = Visit()
+    visit.student = Student.objects.get(pk=student_id)
+    visit.save()
+    return visit_edit(request, visit.id)
 
 
 def visit_post(request, visit_id):

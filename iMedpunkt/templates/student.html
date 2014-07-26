@@ -3,49 +3,49 @@
 {% block content %}
 <div class="centercolumn">
     <div class="studentcard">
-        <h1>{{ stud.first_name }} {{ stud.patronymic }} {{ stud.last_name }} ({{ stud.group }})</h1>
+        <h1>{{ student.first_name }} {{ student.patronymic }} {{ student.last_name }} ({{ student.group }})</h1>
 
         <p>
-            Дата рождения: {{ stud.birth_date }}
+            Дата рождения: {{ student.birth_date }}
         </p>
 
-        <form method="post" action="{% url 'student_post' stud.id %}">
+        <form method="post" action="{% url 'student_post' student.id %}">
             {% csrf_token %}
             <div class="leftcol">
                 <p>
-                    <label><input type="checkbox" name="cert1" {% if stud.cert1 %} checked {% endif %}>Справка о
+                    <label><input type="checkbox" name="cert1" {% if student.cert1 %} checked {% endif %}>Справка о
                         контактах</label>
                     <br>
-                    <label><input type="checkbox" name="cert2" {% if stud.cert2 %} checked {% endif %}>Справка
+                    <label><input type="checkbox" name="cert2" {% if student.cert2 %} checked {% endif %}>Справка
                         м-079</label>
                 </p>
 
                 <p>
                     Хронические заболевания и операции:<br>
-                    <input type="text" size="50" name="health" value="{{ stud.health }}">
+                    <input type="text" size="50" name="health" value="{{ student.health }}">
                 </p>
 
                 <p>
                     Аллергия:<br>
-                    <input type="text" size="50" name="allergy" value="{{ stud.allergy }}">
+                    <input type="text" size="50" name="allergy" value="{{ student.allergy }}">
                 </p>
             </div>
             <div class="rightcol">
                 <p>
                     Детские инфекции:<br>
                     <label>
-                        <input name="bolel" type="radio" value="1" {% if stud.bolel %} checked {% endif %}/>Болел
+                        <input name="bolel" type="radio" value="1" {% if student.bolel %} checked {% endif %}/>Болел
                     </label>
                     <label>
-                        <input name="bolel" type="radio" value="0" {% if not stud.bolel %} checked {% endif %}>Нет
+                        <input name="bolel" type="radio" value="0" {% if not student.bolel %} checked {% endif %}>Нет
                     </label><br>
                 </p>
 
                 <p>
                     Рост:<br>
-                    <input type="text" name="height" value={{ stud.height }}><br>
+                    <input type="text" name="height" value={{ student.height }}><br>
                     Вес:<br>
-                    <input type="text" name="weight" value={{ stud.weight }}><br>
+                    <input type="text" name="weight" value={{ student.weight }}><br>
                 </p>
                 <p>
                     <input type="submit" value="Сохранить">

@@ -50,6 +50,7 @@ td.student {
     vertical-align: top;
     text-align: center;
 }
+
 tr.student_head {
     background-color: #d0f0f0;
 }
@@ -113,4 +114,8 @@ div.red {
 }
 div.green {
     color: lawngreen;
+}
+
+a.smalllink {
+    font-size:8pt;
 }
