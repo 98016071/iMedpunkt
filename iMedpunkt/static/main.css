@@ -55,10 +55,10 @@ tr.student_head {
     background-color: #d0f0f0;
 }
 tr.student_red {
-    background-color: red;
+    background-color: #ffb0b0;
 }
 tr.student_green {
-    background-color: lawngreen;
+    background-color: #b0ffb0;
 }
 
 th.student {

@@ -56,6 +56,10 @@
 
     <h2>Обращения:</h2>
 
+    <p>
+        <button onclick="location.href='{% url 'visit_new' student.id %}'">Новое обращение</button>
+    </p>
+
     {% include "visits_list_template.html" with visits=visits hyper='false'%}
 
 </div>

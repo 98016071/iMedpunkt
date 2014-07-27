@@ -36,7 +36,8 @@
         </tr>
 
         {% for stud in students %}
-            <tr class="student{% if stud.in_isolator %}_red{% elif stud.need_repeat %}_green{% endif %}" onclick="location.href='{% url 'student' stud.id %}'">
+            <tr class="student{% if stud.in_isolator %}_red{% elif stud.need_repeat %}_green{% endif %}"
+                onclick="location.href='{% url 'student' stud.id %}'">
                 <td class="student">
                     {{ stud }}
                 </td>
