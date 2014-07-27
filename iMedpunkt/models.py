@@ -5,18 +5,18 @@ from datetime import date
 
 
 class Student(models.Model):
-    first_name = models.CharField(max_length=50, default='#')
-    patronymic = models.CharField(max_length=50, default='#')
-    last_name = models.CharField(max_length=50, default='#')
-    birth_date = models.DateField()
+    first_name = models.CharField(max_length=50, default='-')
+    patronymic = models.CharField(max_length=50, default='-')
+    last_name = models.CharField(max_length=50, default='-')
+    birth_date = models.DateField(default="1990-01-01")
     sex = models.CharField(max_length=1, default="?")
-    group = models.CharField(max_length=50, default='#')
-    home = models.CharField(max_length=50, default='#')
+    group = models.CharField(max_length=50, default='?')
+    home = models.CharField(max_length=50, default='?')
     height = models.IntegerField(default=0)
     weight = models.IntegerField(default=0)
-    health = models.CharField(max_length=100, default='#')
-    allergy = models.CharField(max_length=100, default='#')
-    food = models.CharField(max_length=100, default='#')
+    health = models.CharField(max_length=100, default='-')
+    allergy = models.CharField(max_length=100, default='-')
+    food = models.CharField(max_length=100, default='-')
     need_repeat = models.BooleanField(default=False)
     in_isolator = models.BooleanField(default=False)
     bolel = models.BooleanField(default=False)
@@ -36,9 +36,14 @@ class Student(models.Model):
         return (date.today() - self.birth_date).days // 365
 
     def certificates(self):
-        if self.cert1 and self.cert2:
+        if not self.cert1 and not self.cert2:
+            return 'нет ничего'
+        elif not self.cert1:
+            return "нет о контактах"
+        elif not self.cert2:
+            return "нет м-079"
+        else:
             return '+'
-        return '-'
 
 
 class Visit(models.Model):

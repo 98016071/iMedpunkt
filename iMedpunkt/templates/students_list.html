@@ -7,41 +7,41 @@
             <th class="student">
                 Имя Фамилия
             </th>
-            <th class="student">
+            <th class="student" style="width:5%">
                 Возраст
             </th>
-            <th class="student">
+            <th class="student" style="width:5%">
                 Группа
             </th>
-            <th class="student">
+            <th class="student" style="width:5%">
                 Место жительства
             </th>
-            <th class="student">
+            <th class="student" style="width:10%">
                 Здоровье
             </th>
-            <th class="student">
+            <th class="student" style="width:10%">
                 Аллергия
             </th>
-            <th class="student">
+            <th class="student" style="width:5%">
                 Рост
             </th>
-            <th class="student">
+            <th class="student" style="width:5%">
                 Вес
             </th>
-            <th class="student">
+            <th class="student" style="width:10%">
                 Справки
             </th>
-            <th class="student">
+            <th class="student" style="width:10%">
                 Еда
             </th>
         </tr>
         </thead>
 
         {% for stud in students %}
-            <tr class="student{% if stud.in_isolator %}_red{% elif stud.need_repeat %}_green{% endif %}"
+        <tr class="student{% if stud.in_isolator %}_red{% elif stud.need_repeat %}_green{% endif %}"
                 onclick="location.href='{% url 'student' stud.id %}'">
                 <td class="student">
-                    {{ stud }}
+                    {{ stud.last_name }} {{ stud.first_name }}
                 </td>
                 <td class="student">
                     {{ stud.age }}

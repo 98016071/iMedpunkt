@@ -48,7 +48,7 @@ table.student {
 td.student {
     padding: 0.5em;
     vertical-align: top;
-    text-align: center;
+    text-align: left;
 }
 
 tr.student_head {
@@ -60,7 +60,7 @@ th.student {
     padding: 0.5em;
     vertical-align: top;
     font-size: 12pt;
-    text-align: center;
+    text-align: left;
 }
 
 tr.student_red {
@@ -102,6 +102,11 @@ td.visits {
     border: solid 1pt silver;
     padding-left: 1em;
     padding-right: 1em;
+}
+
+div.studentcard {
+    width: 33em;
+    height: 23em;
 }
 
 div.leftcol {

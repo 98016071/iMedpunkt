@@ -40,10 +40,11 @@ def student_post(request, student_id):
         return HttpResponse('Use POST')
     data = request.POST
     stud = Student.objects.get(pk=student_id)
-    stud.cert1, stud.cert2, stud.health, stud.allergy = \
+    stud.cert1, stud.cert2, stud.health, stud.allergy, stud.food = \
         data.get('cert1', False), data.get('cert2', False), \
-        data['health'], data['allergy']
-    stud.bolel, stud.height, stud.weight = bool(int(data['bolel'])), data['height'], data['weight']
+        data['health'], data['allergy'], data['food']
+    stud.bolel, stud.height, stud.weight = \
+        bool(int(data['bolel'])), data['height'], data['weight']
     print(data, bool(int(data['bolel'])))
     stud.save()
     return student_list(request)
