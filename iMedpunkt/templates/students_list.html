@@ -2,38 +2,40 @@
 
 {% block content %}
     <table class="student">
+        <thead>
         <tr class="student_head">
-            <th>
+            <th class="student">
                 Имя Фамилия
             </th>
-            <th>
+            <th class="student">
                 Возраст
             </th>
-            <th>
+            <th class="student">
                 Группа
             </th>
-            <th>
+            <th class="student">
                 Место жительства
             </th>
-            <th>
+            <th class="student">
                 Здоровье
             </th>
-            <th>
+            <th class="student">
                 Аллергия
             </th>
-            <th>
+            <th class="student">
                 Рост
             </th>
-            <th>
+            <th class="student">
                 Вес
             </th>
-            <th>
+            <th class="student">
                 Справки
             </th>
-            <th>
+            <th class="student">
                 Еда
             </th>
         </tr>
+        </thead>
 
         {% for stud in students %}
             <tr class="student{% if stud.in_isolator %}_red{% elif stud.need_repeat %}_green{% endif %}"

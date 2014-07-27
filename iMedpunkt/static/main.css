@@ -52,24 +52,34 @@ td.student {
 }
 
 tr.student_head {
-    background-color: #d0f0f0;
-}
-tr.student_red {
-    background-color: #ffb0b0;
-}
-tr.student_green {
-    background-color: #b0ffb0;
+    padding: 0.5em;
+    background-color: #e0f7f7;
 }
 
 th.student {
-    font-family: Arial, SunSans-Regular, Sans-Serif;
-    text-align: left;
-    font-size: 14pt;
     padding: 0.5em;
+    vertical-align: top;
+    font-size: 12pt;
+    text-align: center;
 }
 
-tr.student:nth-child(odd) {
-    background-color: #f0ffff;
+tr.student_red {
+    background-color: #ffbbbb;
+}
+tr.student_red:nth-child(even) {
+    background-color: #f0b0b0;
+}
+tr.student_green {
+    background-color: #bbffbb;
+}
+tr.student_green:nth-child(even) {
+    background-color: #b0f0b0;
+}
+tr.student {
+    background-color: #eeffff;
+}
+tr.student:nth-child(even) {
+    background-color: #e0f7f7;
 }
 
 input.formfield {
