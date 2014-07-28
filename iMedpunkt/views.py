@@ -5,16 +5,19 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.template.context import RequestContext
+from django.db import models
+from django.utils import timezone
+from datetime import datetime
 from iMedpunkt.models import Student, Visit
+
 
 def login(request):
     return HttpResponse()
 
 
-
 def student_list(request):
     # if not request.user.is_authenticated():
-    #     return HttpResponseRedirect('/login/?next=%s' % request.path)
+    # return HttpResponseRedirect('/login/?next=%s' % request.path)
     students = list(Student.objects.order_by("first_name"))
     template = loader.get_template('students_list.html')
     students.sort(key=lambda x: x.last_name)
@@ -83,7 +86,9 @@ def visit_edit(request, visit_id):
     })
     return HttpResponse(template.render(context))
 
+
 def visit_new(request, student_id):
+    print('visit_new')
     visit = Visit()
     visit.student = Student.objects.get(pk=student_id)
     visit.save()
@@ -105,6 +110,11 @@ def visit_post(request, visit_id):
     visit.injury = bool(int(data['injury']))
     visit.need_consultation = bool(int(data['need_consultation']))
     visit.student.need_repeat = bool(int(data['need_repeat']))
+    a, b = [int(i) for i in data['datepicker'].split('/')], [int(i) for i in data['timepicker'].split(':')]
+    print(type(visit.date))
+    visit.date = datetime(a[2], a[0], a[1], b[0], b[1], b[2])
+    date1 = timezone.localtime(visit.date)
+    visit.date = date1
     print(data, visit)
     visit.student.save()
     visit.save()

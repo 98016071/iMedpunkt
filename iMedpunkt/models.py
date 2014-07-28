@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from datetime import date
 
 # Create your models here.
@@ -60,9 +61,19 @@ class Visit(models.Model):
     need_consultation = models.BooleanField(default=False)
     need_repeat = models.BooleanField(default=False)
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        date1 = timezone.localtime(self.date)
+        self.date = date1
+
     def __str__(self):
         return self.date.strftime("%d.%m.%y") + " " + self.student.__str__() + " (" + self.complaints + ")"
 
     def __unicode__(self):
         return self.date.strftime("%d.%m.%y") + " " + self.student.__str__() + " (" + self.complaints + ")"
 
+    def date_to_str(self):
+        return str(self.date.month) + '/' + str(self.date.day) + '/' + str(self.date.year)
+
+    def time_to_str(self):
+        return self.date.strftime("%H:%M:%S")

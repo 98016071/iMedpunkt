@@ -4,20 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}"/>
-    <link rel="icon" type="image/x-icon" href="{% static 'favicon.png' %}" />
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.png' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'jquery-ui-1.11.0/jquery-ui.css' %}">
+    <script type='text/javascript' src="{% static 'jquery-2.1.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'jquery-ui-1.11.0/jquery-ui.js' %}"></script>
     <title>{% block title %}iMedpunkt{% endblock %}</title>
 </head>
 
 <body>
-    <h1 class="header">✚ iMedpunkt</h1>
-    <div id="navigation">
-        {% block navigation %}
+<h1 class="header">✚ iMedpunkt</h1>
+
+<div id="navigation">
+    {% block navigation %}
         <a class="navigation" href={% url 'student_list' %}>Школьники</a>
         <a class="navigation" href={% url 'visits_list' %}>Журнал обращений</a>
-        {% endblock %}
-    </div>
-    <div id="content">
-        {% block content %}{% endblock %}
-    </div>
+    {% endblock %}
+</div>
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
 </body>
 </html>
